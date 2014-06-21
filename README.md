@@ -1,6 +1,6 @@
 # Socket Model
 - - -
-A small framework for inter-process socket communications.
+A small unix socket framework to support inter-process communications.
 
 ## Overview
 
