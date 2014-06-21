@@ -1,2 +1,2 @@
-
+// just the model...
 module.exports = require('./lib/SocketModel');
