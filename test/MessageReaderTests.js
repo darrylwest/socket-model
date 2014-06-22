@@ -24,7 +24,6 @@ describe('MessageReader', function() {
     describe('#instance', function() {
         var reader = new MessageReader( createOptions() ),
             methods = [
-                'setSocket',
                 'lineHandler',
                 '__protected',
                 // inherited

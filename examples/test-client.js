@@ -35,7 +35,7 @@ start = function() {
         connected = true;
         console.log( 'connected, create the client...' );
 
-        client.write('client id: ' + clientId + '\n');
+        client.write(JSON.stringify( { clientId:clientId } ) + '\n');
 
         var lineReader = carrier.carry( client );
         lineReader.on('line', function(data) {
