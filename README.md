@@ -10,54 +10,55 @@ Each message is wrapped in an object with the message id (mid), time stamp (ts) 
 
 ## Use
 
-  // process A
-  var SocketModel = require('socket-model');
+// process A
 
-  var server = SocketModel.createServer( { socketFile:'/tmp/test.sock' } );
+    var SocketModel = require('socket-model');
 
-  var writer = server.getWriter();
-  var reader = server.getReader();
-  reader.on('line', function(line) {
-    writer.send('echo: ', line);
-  });
+    var server = SocketModel.createServer( { socketFile:'/tmp/test.sock' } );
 
-  server.start();
+    server.start();
 
+// process B
 
-  // process B
-  var SocketModel = require('socket-model');
-  var options = {
-    socketFile:'/tmp/test.sock',
-    log:require('simple-node-logger').createLogger(),
-    reconnectOnError:true
-  };
+    var SocketModel = require('socket-model');
 
-  var client = SocketModel.createClient( options );
-  client.start();
+    var client = SocketModel.createClient( { socketFile:'/tmp/test.sock' } );
 
-  var writer = client.getWriter();
-  var reader = client.getReader();
-
-  reader.on('line', function(line) {
-    console.log('line: ', line);
-  });
-
-  client.start();
-  writer.write('hello socket model!');
+    client.start();
+    client.send('hello socket model!');
 
 
 ## Examples
 
-### Central LevelDb Hub
+See the examples folder for server and client message examples.
 
-Create a hub for level db to support multiple application instances.
-
-### Consolidated Application Logger
-
-Combine log statements from multiple applications to write to a central location.
 
 ## API
 
+### SocketModel
+
+- SocketModel.createServer()
+- SocketModel.createClient()
+
+### SocketServer
+
+- server.start()
+- server.broadcast()
+
+### SocketClient
+
+- client.start()
+- client.send()
+
+### MessageWriter
+
+- writer.send()
+- writer.wrapMessage()
+
+### MessageReader
+
+- reader.lineHandler()
+- reader.on()
 
 
 - - -

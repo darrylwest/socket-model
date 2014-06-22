@@ -7,7 +7,9 @@
 var should = require('chai').should(),
     dash = require('lodash' ),
     SocketModel = require('../lib/SocketModel' ),
-    SocketServer = require('../lib/SocketServer');
+    SocketServer = require('../lib/SocketServer' ),
+    MessageReader = require('../lib/MessageReader' ),
+    MessageWriter = require('../lib/MessageWriter');
 
 describe('SocketServer', function() {
     'use strict';
@@ -20,6 +22,9 @@ describe('SocketServer', function() {
         opts.log = log;
         opts.socketFile = '/tmp/test.sock';
 
+        opts.reader = new MessageReader( opts );
+        opts.writer = new MessageWriter( opts );
+
         return opts;
     };
 
@@ -28,7 +33,6 @@ describe('SocketServer', function() {
             methods = [
                 'broadcast',
                 'createdCallback',
-                'getSocketFile',
                 'start',
                 'stop',
                 'getClients',

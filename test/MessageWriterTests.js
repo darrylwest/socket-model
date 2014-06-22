@@ -45,8 +45,37 @@ describe('MessageWriter', function() {
     });
 
     describe('wrapMessage', function() {
-        it('should wrap a plain text message');
-        it('should wrap a complex object');
-        it('should reject a null message');
+        var writer = new MessageWriter( createOptions() );
+
+        it('should wrap a plain text message', function() {
+            var obj = writer.wrapMessage('this is a test');
+
+            should.exist( obj );
+            obj.message.should.equal( 'this is a test' );
+            obj.ts.should.be.above( 100 );
+            should.exist( obj.mid );
+        });
+
+        it('should wrap a complex object', function() {
+            var msg = {
+                one:'this is my one test',
+                two:'second parameter'
+            };
+
+            var obj = writer.wrapMessage( msg );
+
+            should.exist( obj );
+            should.exist( obj.mid );
+            obj.ts.should.be.above( Date.now() - 1000 );
+
+            obj.message.one.should.equal( msg.one );
+            obj.message.two.should.equal( msg.two );
+        });
+
+        it('should reject a null message', function() {
+            var obj = writer.wrapMessage();
+
+            should.not.exist( obj );
+        });
     });
 });

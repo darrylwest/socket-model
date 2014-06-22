@@ -1,5 +1,5 @@
 /**
- *
+ * @class SocketClientTests
  *
  * @author: darryl.west@roundpeg.com
  * @created: 6/21/14 7:45 PM
@@ -7,7 +7,9 @@
 var should = require('chai').should(),
     dash = require('lodash' ),
     SocketModel = require('../lib/SocketModel' ),
-    SocketClient = require('../lib/SocketClient');
+    SocketClient = require('../lib/SocketClient' ),
+    MessageReader = require('../lib/MessageReader' ),
+    MessageWriter = require('../lib/MessageWriter');
 
 describe('SocketClient', function() {
     'use strict';
@@ -19,6 +21,9 @@ describe('SocketClient', function() {
 
         opts.log = log;
         opts.socketFile = '/tmp/test.sock';
+
+        opts.reader = new MessageReader( opts );
+        opts.writer = new MessageWriter( opts );
 
         return opts;
     };
