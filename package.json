@@ -12,6 +12,7 @@
     "unix sockets"
   ],
   "dependencies": {
+    "carrier": "^0.1.14",
     "casual": "^1.4.5",
     "commander": "^2.2.0",
     "lodash": "~2.4.1",

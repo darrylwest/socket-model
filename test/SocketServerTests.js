@@ -19,7 +19,6 @@ describe('SocketServer', function() {
 
         opts.log = log;
         opts.socketFile = '/tmp/test.sock';
-        opts.removeFileOnStart = true;
 
         return opts;
     };
@@ -27,12 +26,20 @@ describe('SocketServer', function() {
     describe('#instance', function() {
         var server = new SocketServer( createOptions() ),
             methods = [
-                'getSocketFile'
+                'broadcast',
+                'createdCallback',
+                'getSocketFile',
+                'start',
+                'stop',
+                'getClients',
+                '__protected'
             ];
 
         it('should create an instance of SocketServer', function() {
             should.exist( server );
             server.should.be.instanceof( SocketServer );
+
+            server.__protected().removeSocketFileOnStart.should.equal( true );
         });
 
         it('should have all expected methods by size and type', function() {
