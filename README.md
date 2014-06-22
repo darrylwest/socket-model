@@ -10,6 +10,10 @@ Each message is wrapped in an object with the message id (mid), time stamp (ts) 
 
 For most applications using the server and client provide all thats required to exchange messages.  But, since the reader and writer are separate objects injected into the server and client, these objects my be swapped or overriden to provide extra processing including authentication, message digest, priority, etc.
 
+## Installation
+
+	npm install socket-model --save
+
 ## Use
 
 // server process
@@ -87,4 +91,4 @@ The message reader is responsible for parsing the incoming message and firing a 
 
 
 - - -
-_<small>Copyright (c) 2014, rain city software | Version 00.9.10, </small>_
+_<small>Copyright (c) 2014, rain city software | Version 00.9.11, </small>_
