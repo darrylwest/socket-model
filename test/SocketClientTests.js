@@ -26,6 +26,7 @@ describe('SocketClient', function() {
     describe('#instance', function() {
         var client = new SocketClient( createOptions() ),
             methods = [
+                'messageHandler',
                 'connectHandler',
                 'start',
                 '__protected'

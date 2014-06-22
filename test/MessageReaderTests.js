@@ -24,7 +24,18 @@ describe('MessageReader', function() {
     describe('#instance', function() {
         var reader = new MessageReader( createOptions() ),
             methods = [
-                '__protected'
+                'setSocket',
+                'lineHandler',
+                '__protected',
+                // inherited
+                'addListener',
+                'emit',
+                'listeners',
+                'on',
+                'once',
+                'removeAllListeners',
+                'removeListener',
+                'setMaxListeners'
             ];
 
         it('should create an instance of MessageReader', function() {
