@@ -30,7 +30,7 @@ describe('SocketClient', function() {
                 'connectHandler',
                 'errorHandler',
                 'endHandler',
-                'sendGreeting',
+                'send',
                 'start',
                 '__protected'
             ];
