@@ -30,6 +30,7 @@ describe('SocketClient', function() {
                 'connectHandler',
                 'errorHandler',
                 'endHandler',
+                'sendGreeting',
                 'start',
                 '__protected'
             ];
@@ -39,6 +40,7 @@ describe('SocketClient', function() {
             client.should.be.instanceof( SocketClient );
 
             client.__protected().separator.should.equal( '\n' );
+            client.__protected().reconnect.should.equal( true );
         });
 
         it('should have all expected methods by size and type', function() {
