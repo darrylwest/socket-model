@@ -1,7 +1,7 @@
 {
   "name": "socket-model",
   "version": "0.9.10",
-  "description": "A small socket network framework to support inter-process messages using unix sockets",
+  "description": "A small socket network framework to support inter-process JSON messages using unix sockets.",
   "main": "index.js",
   "keywords": [
     "sockets",
