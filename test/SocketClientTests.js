@@ -28,6 +28,8 @@ describe('SocketClient', function() {
             methods = [
                 'messageHandler',
                 'connectHandler',
+                'errorHandler',
+                'endHandler',
                 'start',
                 '__protected'
             ];
