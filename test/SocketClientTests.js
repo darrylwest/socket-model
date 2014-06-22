@@ -31,11 +31,11 @@ describe('SocketClient', function() {
     describe('#instance', function() {
         var client = new SocketClient( createOptions() ),
             methods = [
-                'messageHandler',
+                'send',
+                'onMessage',
                 'connectHandler',
                 'errorHandler',
                 'endHandler',
-                'send',
                 'start',
                 '__protected'
             ];

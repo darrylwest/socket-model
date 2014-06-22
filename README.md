@@ -8,22 +8,33 @@ Socket Model is a set of server/client reader/writer objects that provide a fram
 
 Each message is wrapped in an object with the message id (mid), time stamp (ts) and the message.  Messages are parsed by the receiver (either client or server).  Message helpers include MessageWriter and MessageReader.  These classes may be swapped out or extended to provide additional capabilities.  They are injected to SocketServer and SocketClient when invoked through SocketModel's create methods.
 
+For most applications using the server and client provide all thats required to exchange messages.  But, since the reader and writer are separate objects injected into the server and client, these objects my be swapped or overriden to provide extra processing including authentication, message digest, priority, etc.
+
 ## Use
 
-// process A
+// server process
 
     var SocketModel = require('socket-model');
 
     var server = SocketModel.createServer( { socketFile:'/tmp/test.sock' } );
 
+    server.onMessage(function(obj) {
+    	console.log(' <<< Client Message: ', obj.message);
+    	server.broadcast('echo: ', obj.message);
+    });
+    
     server.start();
 
-// process B
+// cleient process
 
     var SocketModel = require('socket-model');
 
     var client = SocketModel.createClient( { socketFile:'/tmp/test.sock' } );
 
+	client.onMessage(function(obj) {
+		console.log(' <<< Server Message: ', obj.message);
+	});
+	
     client.start();
     client.send('hello socket model!');
 
@@ -37,28 +48,42 @@ See the examples folder for server and client message examples.
 
 ### SocketModel
 
-- SocketModel.createServer()
-- SocketModel.createClient()
+The socket model object contains two factory methods to create server and client objects.  They can be invoked with preset options to set socket file, reader, writer, and other options.  The client must be created with a specified socket file (see examples).
+
+- SocketModel.createServer(options)
+- SocketModel.createClient(options)
 
 ### SocketServer
 
+Once the socket server has be created it can be started to listen for client connections.  The broadcast method is used to send a wrapped, stringified JSON message to all clients in the list.  If the list is null, then the message is sent to all clients.
+
+Incoming messages can be listened to by assigning a callback to onMessage().  Incoming JSON strings are parsed by the reader then sent as objects to handlers.  Message objects have a message id, timestamp, and message payload.
+
 - server.start()
-- server.broadcast()
+- server.broadcast(obj, clientList)
+- server.onMessage(callback)
+- server.getClients()
 
 ### SocketClient
 
+One a socket client is created it may be started to attempt connection to the server.  If the server is unavailable, the client will continue to attempt to connect (set by options).  If a server connection drops, the client will again attempt to connect.
+
 - client.start()
-- client.send()
+- client.send(obj)
+- client.onMessage(callback)
 
 ### MessageWriter
 
-- writer.send()
+The message writer is responsible for wrapping outgoing messages with a message id, timestamp and the message.  The wrapped object is then stringified and sent to the specified client.
+
+- writer.send(obj, socket)
 - writer.wrapMessage()
 
 ### MessageReader
 
-- reader.lineHandler()
-- reader.on()
+The message reader is responsible for parsing the incoming message and firing a 'message' event with the parsed object.
+
+- reader.lineHandler(callback)
 
 
 - - -

@@ -5,6 +5,10 @@ var client = require('../lib/SocketModel').createClient({ socketFile:'/tmp/test-
 var interval = Math.round((Math.random() * 10) + 1) * 1000;
 console.log('interval: ', interval);
 
+client.onMessage(function(obj) {
+    console.log(' <<< Server Message: ', obj.message);
+});
+
 client.start();
 
 id = setInterval(function() {

@@ -32,6 +32,7 @@ describe('SocketServer', function() {
         var server = new SocketServer( createOptions() ),
             methods = [
                 'broadcast',
+                'onMessage',
                 'createdCallback',
                 'start',
                 'stop',
