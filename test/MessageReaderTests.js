@@ -52,4 +52,40 @@ describe('MessageReader', function() {
         });
     });
 
+    describe('lineHandler', function() {
+
+
+        it('should parse a valid json line', function(done) {
+            var reader = new MessageReader( createOptions() ),
+                callback,
+                obj = {
+                    hello:'world',
+                    flarb:'flib'
+                };
+
+            callback = function(data) {
+                should.exist( data );
+
+                data.hello.should.equal( obj.hello );
+
+                done();
+            };
+
+            reader.on('message', callback);
+            reader.lineHandler( JSON.stringify( obj ));
+        });
+
+        it('should log error on non-json input line', function() {
+            var reader = new MessageReader( createOptions() ),
+                callback;
+
+            callback = function(data) {
+                should.not.exist( data );
+            };
+
+            reader.on('message', callback);
+            reader.lineHandler( 'bad line' );
+        });
+    });
+
 });
