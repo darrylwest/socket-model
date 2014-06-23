@@ -64,9 +64,11 @@ Once the socket server has be created it can be started to listen for client con
 Incoming messages can be listened to by assigning a callback to onMessage().  Incoming JSON strings are parsed by the reader then sent as objects to handlers.  Message objects have a message id, timestamp, and message payload.
 
 - server.start()
-- server.broadcast(obj, clientList)
-- server.onMessage(callback)
+- server.broadcast( obj, clientList )
+- server.onMessage( messageHandler )
 - server.getClients()
+- server.onClientConnection( clientConnectionHandler )
+- event: client - fired when a new client connects
 
 ### SocketClient
 
@@ -88,7 +90,7 @@ The message writer is responsible for wrapping outgoing messages with a message 
 The message reader is responsible for parsing the incoming message and firing a 'message' event with the parsed object.
 
 - reader.lineHandler(callback)
-
+- event: message - fired when a new messages is received
 
 - - -
-_<small>Copyright (c) 2014, rain city software | Version 00.9.14</small>_
+_<small>Copyright (c) 2014, rain city software | Version 00.9.15</small>_

@@ -34,10 +34,20 @@ describe('SocketServer', function() {
                 'broadcast',
                 'onMessage',
                 'createdCallback',
+                'onClientConnection',
                 'start',
                 'stop',
                 'getClients',
-                '__protected'
+                '__protected',
+                // inherited
+                'addListener',
+                'emit',
+                'listeners',
+                'on',
+                'once',
+                'removeAllListeners',
+                'removeListener',
+                'setMaxListeners'
             ];
 
         it('should create an instance of SocketServer', function() {

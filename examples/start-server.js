@@ -9,6 +9,10 @@ server.onMessage(function(msg) {
     server.broadcast( msg.message );
 });
 
+server.onClientConnection(function(socket) {
+    console.log('new client connection: ', socket.id);
+});
+
 var count = 0;
 var id = setInterval(function() {
     if (server.getClients().length > 0) {
