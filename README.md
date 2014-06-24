@@ -93,4 +93,4 @@ The message reader is responsible for parsing the incoming message and firing a 
 - event: message - fired when a new messages is received
 
 - - -
-_<small>Copyright (c) 2014, rain city software | Version 00.9.15</small>_
+_<small>Copyright (c) 2014, rain city software | Version 00.9.16</small>_
