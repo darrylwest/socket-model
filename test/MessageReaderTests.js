@@ -25,6 +25,7 @@ describe('MessageReader', function() {
         var reader = new MessageReader( createOptions() ),
             methods = [
                 'lineHandler',
+                'getMessageCount',
                 '__protected',
                 // inherited
                 'addListener',

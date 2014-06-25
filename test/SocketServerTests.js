@@ -38,6 +38,8 @@ describe('SocketServer', function() {
                 'start',
                 'stop',
                 'getClients',
+                'getReader',
+                'getWriter',
                 '__protected',
                 // inherited
                 'addListener',

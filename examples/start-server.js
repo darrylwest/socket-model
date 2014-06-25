@@ -1,16 +1,25 @@
 #!/usr/bin/env node
 
-var server = require('../lib/SocketModel').createServer({ socketFile:'/tmp/test-server.sock' });
+var log = require('simple-node-logger').createLogger(),
+    SocketModel = require('../lib/SocketModel'),
+    server,
+    opts = {
+        socketFile:'/tmp/test-server.sock',
+        log:log
+    };
+    
+log.setLevel('debug');
+server = SocketModel.createServer( opts );
 
 server.start();
 
 server.onMessage(function(msg) {
-    console.log(' <<< Client Message: ', JSON.stringify( msg ));
+    log.info(' <<< Client Message: ', JSON.stringify( msg ));
     server.broadcast( msg.message );
 });
 
 server.onClientConnection(function(socket) {
-    console.log('new client connection: ', socket.id);
+    log.info('new client connection: ', socket.id);
 });
 
 var count = 0;

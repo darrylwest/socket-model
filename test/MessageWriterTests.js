@@ -26,6 +26,7 @@ describe('MessageWriter', function() {
             methods = [
                 'wrapMessage',
                 'send',
+                'getMessageCount',
                 '__protected'
             ];
 
