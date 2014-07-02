@@ -11,7 +11,7 @@ var log = require('simple-node-logger').createLogger(),
 
 log.setLevel('debug');
 client = SocketModel.createClient( opts );
-reader = client.__protected().reader;
+reader = client.getReader();
 
 var interval = Math.round((Math.random() * 10) + 1) * 1000;
 log.info('interval: ', interval);
