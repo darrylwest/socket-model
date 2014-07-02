@@ -20,6 +20,7 @@ server.onMessage(function(msg) {
 
 server.onClientConnection(function(socket) {
     log.info('new client connection: ', socket.id);
+    server.getWriter().send('client connection accepted for id: ' + socket.id, socket);
 });
 
 var count = 0;
