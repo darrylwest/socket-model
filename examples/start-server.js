@@ -33,5 +33,5 @@ var id = setInterval(function() {
 
         server.broadcast( obj );
     }
-}, 6000);
+}, 10000);
 

@@ -13,7 +13,7 @@ log.setLevel('debug');
 client = SocketModel.createClient( opts );
 reader = client.getReader();
 
-var interval = Math.round((Math.random() * 10) + 1) * 1000;
+var interval = Math.round((Math.random() * 10) + 1) * 100;
 log.info('interval: ', interval);
 
 client.onMessage(function(obj) {
@@ -23,11 +23,20 @@ client.onMessage(function(obj) {
 
 client.start();
 
+var count = 0;
+
 id = setInterval(function() {
+    count++;
     var obj = {
-        clientTime:new Date()
+        clientTime:new Date(),
+        count:count
     };
 
     client.send( obj );
+
+    if (count > 3) {
+        clearInterval( id );
+        client.stop('this is the last message you will get from me for a while...');
+    }
 }, interval);
 

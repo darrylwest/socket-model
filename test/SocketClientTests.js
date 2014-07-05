@@ -37,6 +37,7 @@ describe('SocketClient', function() {
                 'errorHandler',
                 'endHandler',
                 'start',
+                'stop',
                 'getReader',
                 'getWriter',
                 '__protected'
