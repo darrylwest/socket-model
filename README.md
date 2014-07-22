@@ -80,6 +80,7 @@ One a socket client is created it may be started to attempt connection to the se
 - client.start()
 - client.send(obj)
 - client.onMessage(callback)
+- client.stop()
 
 ### MessageWriter
 
@@ -96,4 +97,4 @@ The message reader is responsible for parsing the incoming message and firing a 
 - event: message - fired when a new messages is received
 
 - - -
-_<small>Copyright (c) 2014, rain city software | Version 00.9.21</small>_
+_<small>Copyright © 2014, rain city software | Version 00.91.23</small>_

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var log = require('simple-node-logger').createLogger(),
+var log = require('simple-node-logger').createSimpleLogger(),
     SocketModel = require('../lib/SocketModel'),
     client,
     reader,

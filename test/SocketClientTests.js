@@ -14,7 +14,7 @@ var should = require('chai').should(),
 describe('SocketClient', function() {
     'use strict';
 
-    var log = require('simple-node-logger' ).createLogger();
+    var log = require('simple-node-logger' ).createSimpleLogger();
 
     var createOptions = function() {
         var opts = {};
