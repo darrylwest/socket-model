@@ -2,6 +2,8 @@
 - - -
 A small unix socket framework to support inter-process communications.
 
+[![NPM version](https://badge.fury.io/js/socket-model.svg)](http://badge.fury.io/js/socket-model)
+
 ## Overview
 
 Socket Model is a set of server/client reader/writer objects that provide a framework for inter-process communications based on unix sockets.  Communications exchange JSON messages delimited by CR (\n).  Messages can be read and written from either client or server using send() and read() where the message is either a string or a complex object.  Servers have the ability to broadcast messages to all active clients.  
@@ -97,4 +99,4 @@ The message reader is responsible for parsing the incoming message and firing a 
 - event: message - fired when a new messages is received
 
 - - -
-_<small>Copyright © 2014, rain city software | Version 00.91.24</small>_
+_<small>Copyright © 2014, rain city software | Version 00.91.25</small>_
