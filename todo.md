@@ -3,10 +3,6 @@ Socket Model To Do List
 
 # General 
 
-* create
-
-# Tests
-
 # Docs
 
 * document the examples
@@ -16,7 +12,7 @@ Socket Model To Do List
 
 
 - - -
-<p><small><em>last updated July 20, 2014</em></small></p>
+<p><small><em>last updated Aug 16, 2014</em></small></p>
 
 
 
