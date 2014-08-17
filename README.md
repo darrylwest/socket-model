@@ -3,6 +3,7 @@
 A small unix socket framework to support inter-process communications.
 
 [![NPM version](https://badge.fury.io/js/socket-model.svg)](http://badge.fury.io/js/socket-model)
+[![Build Status](https://travis-ci.org/darrylwest/socket-model.svg?branch=master)](https://travis-ci.org/darrylwest/socket-model)
 
 ## Overview
 
