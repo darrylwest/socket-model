@@ -4,6 +4,7 @@ A small unix socket framework to support inter-process communications.
 
 [![NPM version](https://badge.fury.io/js/socket-model.svg)](http://badge.fury.io/js/socket-model)
 [![Build Status](https://travis-ci.org/darrylwest/socket-model.svg?branch=master)](https://travis-ci.org/darrylwest/socket-model)
+[![Dependency Status](https://david-dm.org/darrylwest/socket-model.svg)](https://david-dm.org/darrylwest/socket-model)
 
 ## Overview
 
@@ -100,4 +101,4 @@ The message reader is responsible for parsing the incoming message and firing a 
 - event: message - fired when a new messages is received
 
 - - -
-_<small>Copyright © 2014-2015, rain city software | Version 00.91.27</small>_
+_<small>Copyright © 2014-2015, rain city software | Version 00.91.28</small>_
