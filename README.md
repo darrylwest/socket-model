@@ -22,9 +22,9 @@ For most applications using the server and client provide all thats required to 
 
 // server process
 
-    var SocketModel = require('socket-model');
+    const SocketModel = require('socket-model');
 
-    var server = SocketModel.createServer( { socketFile:'/tmp/test.sock' } );
+    const server = SocketModel.createServer( { socketFile:'/tmp/test.sock' } );
 
     server.onMessage(function(obj) {
     	console.log(' <<< Client Message: ', obj.message);
@@ -35,9 +35,9 @@ For most applications using the server and client provide all thats required to 
 
 // cleient process
 
-    var SocketModel = require('socket-model');
+    const SocketModel = require('socket-model');
 
-    var client = SocketModel.createClient( { socketFile:'/tmp/test.sock' } );
+    const client = SocketModel.createClient( { socketFile:'/tmp/test.sock' } );
 
 	client.onMessage(function(obj) {
 		console.log(' <<< Server Message: ', obj.message);
@@ -101,4 +101,4 @@ The message reader is responsible for parsing the incoming message and firing a 
 - event: message - fired when a new messages is received
 
 - - -
-_<small>Copyright © 2014-2015, rain city software | Version 00.91.29</small>_
+_<small>Copyright © 2014-2016, rain city software | Version 00.92.10</small>_
