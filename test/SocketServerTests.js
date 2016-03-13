@@ -40,16 +40,7 @@ describe('SocketServer', function() {
                 'getClients',
                 'getReader',
                 'getWriter',
-                '__protected',
-                // inherited
-                'addListener',
-                'emit',
-                'listeners',
-                'on',
-                'once',
-                'removeAllListeners',
-                'removeListener',
-                'setMaxListeners'
+                '__protected'
             ];
 
         it('should create an instance of SocketServer', function() {
@@ -60,7 +51,7 @@ describe('SocketServer', function() {
         });
 
         it('should have all expected methods by size and type', function() {
-            dash.methods( server ).length.should.equal( methods.length );
+            dash.functions( server ).length.should.equal( methods.length );
             methods.forEach(function(method) {
                 server[ method ].should.be.a( 'function' );
             });

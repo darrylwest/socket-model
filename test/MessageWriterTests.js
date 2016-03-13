@@ -38,7 +38,7 @@ describe('MessageWriter', function() {
         });
 
         it('should have all expected methods by size and type', function() {
-            dash.methods( writer ).length.should.equal( methods.length );
+            dash.functions( writer ).length.should.equal( methods.length );
             methods.forEach(function(method) {
                 writer[ method ].should.be.a( 'function' );
             });

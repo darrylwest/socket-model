@@ -26,16 +26,7 @@ describe('MessageReader', function() {
             methods = [
                 'lineHandler',
                 'getMessageCount',
-                '__protected',
-                // inherited
-                'addListener',
-                'emit',
-                'listeners',
-                'on',
-                'once',
-                'removeAllListeners',
-                'removeListener',
-                'setMaxListeners'
+                '__protected'
             ];
 
         it('should create an instance of MessageReader', function() {
@@ -46,7 +37,7 @@ describe('MessageReader', function() {
         });
 
         it('should have all expected methods by size and type', function() {
-            dash.methods( reader ).length.should.equal( methods.length );
+            dash.functions( reader ).length.should.equal( methods.length );
             methods.forEach(function(method) {
                 reader[ method ].should.be.a( 'function' );
             });

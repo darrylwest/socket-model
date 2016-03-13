@@ -52,7 +52,7 @@ describe('SocketClient', function() {
         });
 
         it('should have all expected methods by size and type', function() {
-            dash.methods( client ).length.should.equal( methods.length );
+            dash.functions( client ).length.should.equal( methods.length );
             methods.forEach(function(method) {
                 client[ method ].should.be.a( 'function' );
             });
